@@ -1,7 +1,6 @@
 const { ApolloServer, PubSub } = require("apollo-server");
 const mongoose = require("mongoose");
 
-const { DB_URL } = require("./config");
 const typeDefs = require("./graphql/typeDefs");
 const resolvers = require("./graphql/resolvers");
 
@@ -13,6 +12,7 @@ const server = new ApolloServer({
 });
 
 const PORT = process.env.PORT || 5000;
+const DB_URL = process.env.DB_URL;
 
 mongoose
   .connect(DB_URL, {
